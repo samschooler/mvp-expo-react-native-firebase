@@ -4,11 +4,7 @@
     "slug": "map-game",
     "privacy": "public",
     "sdkVersion": "35.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,11 +16,19 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.samschooler.mapgame",
+      "supportsTablet": false,
+      "infoPlist": {
+        "UIBackgroundModes": ["location"],
+        "NSLocationWhenInUseUsageDescription": "We need to use your location in the background in order to know your current location throught the game. This is never used outside of game mode. Game mode is never activated without your consent.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need to use your location in the background in order to know your current location throught the game. This is never used outside of game mode. Game mode is never activated without your consent.",
+        "NSLocationAlwaysUsageDescription": "We need to use your location in the background in order to know your current location throught the game. This is never used outside of game mode. Game mode is never activated without your consent."
+      }
+    },
+    "android": {
+      "package": "com.samschooler.mapgame"
     }
   }
 }

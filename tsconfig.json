@@ -12,7 +12,7 @@
       "assets/*": ["assets/*"],
       "components/*": ["src/components/*"],
       "constants/*": ["src/constants/*"],
-      "modules/*": ["modules/*"],
+      "modules/*": ["src/modules/*"],
       "screens/*": ["src/screens/*"],
       "types/*": ["src/types/*"]
     }

@@ -1,7 +1,8 @@
-import { createAppContainer } from "react-navigation";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 import HomeScreen from "screens/Home";
+import GetPermissions from "screens/GetPermissions";
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -9,4 +10,11 @@ const AppNavigator = createStackNavigator({
   }
 });
 
-export default createAppContainer(AppNavigator);
+const RootNavigator = createSwitchNavigator({
+  GetPermissions: {
+    screen: GetPermissions
+  },
+  App: AppNavigator
+});
+
+export default createAppContainer(RootNavigator);
