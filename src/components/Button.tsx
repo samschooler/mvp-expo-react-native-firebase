@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import styledComponentsTS from "styled-components-ts";
+import styled from "styled-components/native";
 import React from "react";
 
 import { T, Block, BlockProps } from "components/Block";
@@ -12,9 +11,7 @@ interface OwnProps {
 
 type Props = OwnProps & BlockProps;
 
-const ButtonHolder = styledComponentsTS<{}>(styled.TouchableOpacity)`
-
-`;
+const ButtonHolder = styled.TouchableOpacity<{}>``;
 
 export default ({ children, onPress, disabled, ...props }: Props) => (
   <ButtonHolder onPress={onPress} disabled={disabled}>

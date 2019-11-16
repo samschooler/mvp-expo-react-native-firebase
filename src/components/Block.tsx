@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import styledComponentsTS from "styled-components-ts";
+import styled from "styled-components/native";
 import {
   AlignItemsProperty,
   BoxShadowProperty,
@@ -65,6 +64,7 @@ interface BaseBlockProps {
   pr?: number;
 
   b?: string;
+  bc?: ColorType;
 
   dFlex?: boolean;
   flex?: number | boolean;
@@ -175,6 +175,11 @@ const blockStyles = (props: BlockProps) => `
 	${typeof props.w === "number" ? `width: ${props.w}px` : ""};
 	${typeof props.h === "number" ? `height: ${props.h}px` : ""};
 	${typeof props.b === "string" ? `border: ${props.b}` : ""};
+	${
+    typeof props.bc === "string"
+      ? `border-color: ${colors[props.bc] ? colors[props.bc] : props.bc}`
+      : ""
+  };
 
 	${
     typeof props.p === "number"
@@ -258,22 +263,19 @@ const blockStyles = (props: BlockProps) => `
 	${props.o ? `opacity: ${props.o}` : ""};
 `;
 
-export const T = styledComponentsTS<TextProps>(styled.Text)`
-	${(props: MustType) => textStyle(props.type)}
-	${(props: BlockProps) => blockStyles(props)}
-	${(props: BaseInlineProps) => inlineStyles(props)}
+export const T = styled.Text<TextProps>`
+  ${(props: MustType) => textStyle(props.type)}
+  ${(props: BaseInlineProps) => inlineStyles(props)}
 `;
 
-export const Block = styledComponentsTS<BlockProps>(styled.View)`
-	${(props: BlockProps) => blockStyles(props)}
+export const Block = styled.View<BlockProps>`
+  ${(props: BlockProps) => blockStyles(props)}
 `;
 
-export const SafeAreaBlock = styledComponentsTS<BlockProps>(
-  styled.SafeAreaView
-)`
-	${(props: BlockProps) => blockStyles(props)}
+export const SafeAreaBlock = styled.SafeAreaView<BlockProps>`
+  ${(props: BlockProps) => blockStyles(props)}
 `;
 
-export const Button = styledComponentsTS<BlockProps>(styled.TouchableOpacity)`
-	${(props: BlockProps) => blockStyles(props)}
+export const Button = styled.TouchableOpacity<BlockProps>`
+  ${(props: BlockProps) => blockStyles(props)}
 `;
