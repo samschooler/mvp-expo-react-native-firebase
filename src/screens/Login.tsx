@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <Block backgroundColor="background" dFlex flex mb={6}>
+    <Block backgroundColor="background" dFlex flex pb={6}>
       <KeyboardAvoidingBlock
         flex
         dFlex
@@ -52,6 +52,7 @@ const Login = () => {
           <Block mb={2}>
             <Input
               enablesReturnKeyAutomatically
+              keyboardAppearance="dark"
               autoFocus
               value={email}
               onChangeText={t => setEmail(t)}
@@ -69,6 +70,7 @@ const Login = () => {
             <Input
               ref={passwordRef}
               enablesReturnKeyAutomatically
+              keyboardAppearance="dark"
               blurOnSubmit={false}
               returnKeyType="go"
               value={password}

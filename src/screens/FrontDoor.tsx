@@ -10,7 +10,7 @@ const FrontDoor = () => {
   const navigation = useNavigation();
 
   return (
-    <Block backgroundColor="background" dFlex flex mb={8}>
+    <Block backgroundColor="background" dFlex flex pb={8}>
       <KeyboardAvoidingBlock
         flex
         dFlex

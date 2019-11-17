@@ -11,19 +11,19 @@ const base = {
 };
 
 const colors = {
-  background: base.white,
-  buttonPrimary: base.black,
-  inputPrimary: base.black,
+  background: base.black,
+  buttonPrimary: base.white,
+  inputPrimary: base.white,
 
-  textPrimary: base.black,
+  textPrimary: base.white,
   textSecondary: "rgb(70, 48, 235)",
-  buttonTextPrimary: base.white,
-  inputTextPrimary: base.white
+  buttonTextPrimary: base.black,
+  inputTextPrimary: base.black
 };
 
 const textOnColors = {
-  white: base.black,
-  midnight: base.white
+  white: base.white,
+  midnight: base.black
 };
 
 export default {
