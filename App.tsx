@@ -6,23 +6,26 @@ import { Provider } from "react-redux";
 import { configureStore } from "store/index";
 
 import AuthLoading from "screens/AuthLoading";
+import FrontDoor from "screens/FrontDoor";
+import Registration from "screens/Registration";
 import Login from "screens/Login";
 
 import Home from "screens/Home";
 
-const AuthNavigator = createStackNavigator(
-  {
-    AuthLoading: {
-      screen: AuthLoading
-    },
-    Login: {
-      screen: Login
-    }
+const AuthNavigator = createSwitchNavigator({
+  AuthLoading: {
+    screen: AuthLoading
   },
-  {
-    headerMode: "none"
+  FrontDoor: {
+    screen: FrontDoor
+  },
+  Registration: {
+    screen: Registration
+  },
+  Login: {
+    screen: Login
   }
-);
+});
 
 const AppNavigator = createStackNavigator(
   {

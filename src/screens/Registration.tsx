@@ -7,17 +7,19 @@ import {
 } from "components/Block";
 import Button from "components/Button";
 import Input from "components/Input";
-import { login } from "store/actions/user";
+import { register } from "store/actions/user";
 import { RequestState } from "types/request";
 import { useNavigation, useDispatch, useSelector } from "modules/hooks";
 import { TextInput } from "react-native";
 
-const Login = () => {
+const Registration = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { requesting, errors, successful } = useSelector<RequestState>(
-    state => state.login
+    state => state.registration
   );
+
+  const passwordRef = useRef<TextInput>();
 
   useEffect(() => {
     if (successful) {
@@ -25,13 +27,11 @@ const Login = () => {
     }
   }, [successful]);
 
-  const passwordRef = useRef<TextInput>();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmit = () => {
-    dispatch(login({ email, password }));
+    dispatch(register({ email, password }));
   };
 
   return (
@@ -94,7 +94,7 @@ const Login = () => {
             disabled={email.length < 1 || password.length < 1 || requesting}
             o={email.length < 1 || password.length < 1 || requesting ? 0.5 : 1}
           >
-            Login
+            Register
           </Button>
           <Button
             mb={2}
@@ -110,4 +110,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Registration;

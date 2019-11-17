@@ -1,18 +1,33 @@
-export type ColorType = "white" | "midnight" | "primary" | "secondary";
+export type ColorType =
+  | "background"
+  | "textPrimary"
+  | "textSecondary"
+  | "buttonPrimary"
+  | "buttonTextPrimary";
 
-const colors = {
+const base = {
   white: "#FFFFFF",
-  midnight: "#26042D",
-  primary: "#FF003C",
-  secondary: "rgb(70, 48, 235)"
+  black: "#000000"
 };
 
-const textColors = {
-  white: colors.midnight,
-  midnight: colors.white
+const colors = {
+  background: base.white,
+  buttonPrimary: base.black,
+  inputPrimary: base.black,
+
+  textPrimary: base.black,
+  textSecondary: "rgb(70, 48, 235)",
+  buttonTextPrimary: base.white,
+  inputTextPrimary: base.white
+};
+
+const textOnColors = {
+  white: base.black,
+  midnight: base.white
 };
 
 export default {
   ...colors,
-  textOn: textColors
+  ...base,
+  textOn: textOnColors
 };

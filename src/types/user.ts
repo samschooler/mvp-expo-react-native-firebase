@@ -48,14 +48,12 @@ export interface AuthDataFailureAction {
 export type AuthDataActionTypes =
   | AuthDataRequestAction
   | AuthDataSuccessAction
-  | AuthDataFailureAction;
+  | AuthDataFailureAction
+  | LogoutSuccessAction;
 
 /* User */
 
-export interface RequiredUser {
-  firstName: string;
-  lastName: string;
-}
+export interface RequiredUser {}
 
 export interface User extends RequiredUser {
   phone?: string;
@@ -82,7 +80,8 @@ export interface UserDataFailureAction {
 export type UserDataActionTypes =
   | UserDataRequestAction
   | UserDataSuccessAction
-  | UserDataFailureAction;
+  | UserDataFailureAction
+  | LogoutSuccessAction;
 
 /* Login */
 
@@ -107,11 +106,12 @@ export interface LoginFailureAction {
 export type LoginActionTypes =
   | LoginRequestAction
   | LoginSuccessAction
-  | LoginFailureAction;
+  | LoginFailureAction
+  | LogoutSuccessAction;
 
 /* Registration */
 
-export type RegistrationRequest = LoginRequest & RequiredUser;
+export type RegistrationRequest = LoginRequest & User;
 
 export interface RegistrationRequestAction {
   type: typeof REGISTRATION_REQUEST;
@@ -129,7 +129,8 @@ export interface RegistrationFailureAction {
 export type RegistrationActionTypes =
   | RegistrationRequestAction
   | RegistrationSuccessAction
-  | RegistrationFailureAction;
+  | RegistrationFailureAction
+  | LogoutSuccessAction;
 
 /* Logout */
 

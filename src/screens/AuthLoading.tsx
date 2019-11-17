@@ -10,7 +10,7 @@ const AuthLoading = () => {
     !!auth && navigation.navigate("Home");
   }, [auth, requesting]);
 
-  return <Block backgroundColor="midnight" flex />;
+  return <Block backgroundColor="background" flex />;
 };
 
 export default AuthLoading;

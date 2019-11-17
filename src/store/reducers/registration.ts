@@ -2,7 +2,8 @@ import {
   REGISTRATION_REQUEST,
   REGISTRATION_SUCCESS,
   REGISTRATION_FAILURE,
-  RegistrationActionTypes
+  RegistrationActionTypes,
+  LOGOUT_SUCCESS
 } from "types/user";
 import { initialRequestState } from "modules/constants";
 import { RequestState } from "types/request";
@@ -25,7 +26,7 @@ export default function registration(
         errors: [],
         messages: [
           {
-            body: `Successfully created account for ${action.response.user.email}`,
+            body: `Successfully created account!`,
             time: new Date()
           }
         ],
@@ -45,6 +46,8 @@ export default function registration(
         requesting: false,
         successful: false
       };
+    case LOGOUT_SUCCESS:
+      return initialRequestState;
 
     default:
       return state;

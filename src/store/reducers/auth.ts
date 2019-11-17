@@ -2,6 +2,7 @@ import {
   AUTH_DATA_REQUEST,
   AUTH_DATA_SUCCESS,
   AUTH_DATA_FAILURE,
+  LOGOUT_SUCCESS,
   AuthDataActionTypes,
   AuthDataState
 } from "types/user";
@@ -44,6 +45,8 @@ export default function auth(
         requesting: false,
         successful: false
       };
+    case LOGOUT_SUCCESS:
+      return initialRequestState;
 
     default:
       return state;

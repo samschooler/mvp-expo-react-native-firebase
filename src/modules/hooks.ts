@@ -32,7 +32,7 @@ export function useAuth(protect: boolean = true) {
 
   useEffect(() => {
     if (protect && !auth.auth && !auth.requesting && auth.successful) {
-      navigation.navigate("Login");
+      navigation.navigate("FrontDoor");
     }
   }, [protect, auth.auth, auth.requesting, auth.successful]);
 

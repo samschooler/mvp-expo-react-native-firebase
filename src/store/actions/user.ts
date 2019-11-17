@@ -58,7 +58,6 @@ const syncUserData: ActionCreator<ThunkResult<void>> = (
 export const login: ActionCreator<ThunkResult<void>> = (
   request: userTypes.LoginRequest
 ) => async dispatch => {
-  console.log("login");
   dispatch({ type: userTypes.LOGIN_REQUEST });
 
   try {
@@ -68,7 +67,6 @@ export const login: ActionCreator<ThunkResult<void>> = (
       type: userTypes.LOGIN_SUCCESS
     });
   } catch (error) {
-    console.log("loginError", error);
     dispatch({
       type: userTypes.LOGIN_FAILURE,
       error: error as firebase.auth.Error

@@ -3,6 +3,7 @@ import styled, {
 } from "styled-components/native";
 import React, { useState } from "react";
 import { TextInputProps } from "react-native";
+import colors from "modules/colors";
 
 interface OwnProps {}
 
@@ -11,25 +12,28 @@ const InputBase = styled.TextInput<{ focused: boolean }>`
   padding-bottom: 13px;
   border-bottom-color: ${({ focused }) => (focused ? "red" : "rgba(0,0,0,0)")};
   border-bottom-width: 3px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
+  background-color: ${colors.inputPrimary};
+  color: ${colors.inputTextPrimary};
 `;
 
 type Props = OwnProps & TextInputProps;
 
-export default ({ ...props }: Props) => {
-  const [focus, setFocus] = useState(false);
+export default React.forwardRef<styled.TextInput, Props>(
+  ({ ...props }: Props, ref) => {
+    const [focus, setFocus] = useState(false);
 
-  return (
-    <InputBase
-      onBlur={() => {
-        setFocus(false);
-      }}
-      onFocus={() => {
-        setFocus(true);
-      }}
-      focused={focus}
-      {...props}
-    />
-  );
-};
+    return (
+      <InputBase
+        ref={ref}
+        onBlur={() => {
+          setFocus(false);
+        }}
+        onFocus={() => {
+          setFocus(true);
+        }}
+        focused={focus}
+        {...props}
+      />
+    );
+  }
+);

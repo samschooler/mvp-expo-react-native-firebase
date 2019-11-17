@@ -2,6 +2,7 @@ import {
   USER_DATA_REQUEST,
   USER_DATA_SUCCESS,
   USER_DATA_FAILURE,
+  LOGOUT_SUCCESS,
   UserDataActionTypes,
   UserDataState
 } from "types/user";
@@ -44,6 +45,8 @@ export default function user(
         requesting: false,
         successful: false
       };
+    case LOGOUT_SUCCESS:
+      return initialRequestState;
 
     default:
       return state;

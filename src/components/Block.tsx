@@ -276,6 +276,10 @@ export const SafeAreaBlock = styled.SafeAreaView<BlockProps>`
   ${(props: BlockProps) => blockStyles(props)}
 `;
 
+export const KeyboardAvoidingBlock = styled.KeyboardAvoidingView<BlockProps>`
+  ${(props: BlockProps) => blockStyles(props)}
+`;
+
 export const Button = styled.TouchableOpacity<BlockProps>`
   ${(props: BlockProps) => blockStyles(props)}
 `;

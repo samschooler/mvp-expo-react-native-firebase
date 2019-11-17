@@ -2,6 +2,7 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  LOGOUT_SUCCESS,
   LoginActionTypes
 } from "types/user";
 import { initialRequestState } from "modules/constants";
@@ -40,6 +41,8 @@ export default function login(
         requesting: false,
         successful: false
       };
+    case LOGOUT_SUCCESS:
+      return initialRequestState;
 
     default:
       return state;
